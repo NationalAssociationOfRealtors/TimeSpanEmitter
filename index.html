@@ -20,7 +20,7 @@
 		<script>
             var start = new Date((new Date).getTime()-18000000);
             var end = new Date();
-            var te = new TimespanEmitter(start, end, 10000, 2, true);
+            var te = new TimespanEmitter(start, end, 10000, 1000, true);
             console.log(te);
             te.addListener('timer', function(timestamp){
                 document.getElementById('test').innerHTML = timestamp;

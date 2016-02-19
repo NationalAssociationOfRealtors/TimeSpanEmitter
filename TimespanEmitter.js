@@ -33,7 +33,6 @@
     proto.run = function(timestamp){
         requestAnimationFrame(this.run.bind(this));
         var diff = (timestamp-this.last);
-        //console.log(diff);
         if(diff >= this.event_rate && this.counter < this.num_steps){
             var add = this.start_time+(this.counter*this.step_increment);
             var current = new Date(add);
