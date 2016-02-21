@@ -43,6 +43,10 @@
             this.last = timestamp;
         }else if(this.counter >= this.num_steps && this.loop){
             this.counter = 0;
+            for(var i in this._getEvents()['looped']){
+                var cb = this._getEvents()['looped'][i]
+                cb.callback.apply(this, []);
+            }
         }
     };
 
