@@ -18,10 +18,10 @@
     var proto = TimespanEmitter.prototype;
     var exports = this;
 
-    proto.addListener = function(evt, callback){
+    proto.addListener = function(evt, callback, scope){
         var events = this._getEvents();
         var listeners = events[evt] || (events[evt]=[]);
-        listeners.push({callback:callback});
+        listeners.push({callback:callback, scope:scope});
         return this;
     };
 
