@@ -36,16 +36,16 @@
             var add = this.start_time+(this.counter*this.step_increment);
             var current = new Date(add);
             for(var i in this._getEvents()['timer']){
-                var cb = this._getEvents()['timer'][i]
-                cb.callback.apply(this, [current]);
+                var cb = this._getEvents()['timer'][i];
+                cb.callback.apply(cb.scope, [current]);
             }
             this.counter++;
             this.last = timestamp;
         }else if(this.counter >= this.num_steps && this.loop){
             this.counter = 0;
             for(var i in this._getEvents()['looped']){
-                var cb = this._getEvents()['looped'][i]
-                cb.callback.apply(this, []);
+                var cb = this._getEvents()['looped'][i];
+                cb.callback.apply(cb.scope, []);
             }
         }
     };
